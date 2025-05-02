@@ -21,7 +21,9 @@ import org.springframework.security.core.Authentication;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://algarciasi.com"}, allowCredentials = "true")
+
 
 public class AuthController {
 	

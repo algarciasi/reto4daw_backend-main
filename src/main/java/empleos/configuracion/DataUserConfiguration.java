@@ -38,7 +38,7 @@ public class DataUserConfiguration {
             .csrf(csrf -> csrf.disable()) // Solo en desarrollo; en prod deberías activarlo con protección adecuada
             .authorizeHttpRequests(auth -> auth
                 // Endpoints públicos
-                .requestMatchers("/auth/login/", "/usuarios/registro", "/categorias/todas", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                .requestMatchers("/auth/login", "/usuarios/registro", "/categorias/todas", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
 
                 // Cliente
                 .requestMatchers("/usuarios/seguimiento/**", "/usuarios/cancelar/**", "solicitudes/nueva", "/solicitudes/usuario").hasRole("CLIENTE")
@@ -87,7 +87,7 @@ public class DataUserConfiguration {
         @Override
         public void addCorsMappings(CorsRegistry registry) {
             registry.addMapping("/**") // habilita para todas las rutas
-                    .allowedOrigins("http://localhost:4200") // origen del frontend
+                    .allowedOrigins("https://algarciasi.com", "http://localhost:4200") // origen del frontend
                     .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                     .allowedHeaders("*")
                     .allowCredentials(true);
